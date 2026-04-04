@@ -1,6 +1,5 @@
 const startbtn = document.querySelector(".startbtn");
 startbtn.onclick = function() {
-    alert("ゲームスタート！！");
     startbtn.style.display = "none";
     const typingscreen = document.querySelector(".typing-screen");
     typingscreen.style.display = "flex";
