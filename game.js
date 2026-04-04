@@ -7,7 +7,7 @@ startbtn.onclick = function() {
     const typeroma = document.querySelector(".type-roma");
     const displayscore = document.querySelector(".score");
     const displaytimer = document.querySelector(".timer");
-    let timer = 60;
+    let timer = 30;
     const countdown = setInterval(() => {
         timer--;
         displaytimer.textContent = "残り時間： " + timer + "秒";
@@ -29,7 +29,9 @@ startbtn.onclick = function() {
         { kana: "教科書", roma: "kyoukasyo" },
         { kana: "郵便局", roma: "yuubinnkyoku" },
         { kana: "コンビニ", roma: "konnbini" },
-        { kana: "東京スカイツリー", roma: "toukyousukaituri-" }
+        { kana: "東京スカイツリー", roma: "toukyousukaituri-" },
+        { kana: "鬼にケツバット", roma: "oniniketubatto" },
+        { kana: "洗濯科学のアリエーヌ", roma: "senntakukagakunoarie-nu" }
     ];
     let currentword = {};
     let score = 0;
