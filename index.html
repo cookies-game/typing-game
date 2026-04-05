@@ -11,18 +11,23 @@
 <body>
     <div class="game-screen">
         <div class="main">
-        <h1>
-            タイピングゲーム
-        </h1>
-    </div>
-    <div class="sub">
-        <h1>
-            タイピングゲーム
-        </h1>
-    </div>
-        <button class="startbtn">
-            ▶ スタート ◀
-        </button>
+            <h1>
+                タイピングゲーム
+            </h1>
+        </div>
+        <div class="sub">
+            <h1>
+                タイピングゲーム
+            </h1>
+        </div>
+        <div class="startbtnlist">
+            <button class="startbtn">
+                単語タイピング
+            </button>
+            <button class="startbtn2">
+                タイピングクイズ
+            </button>
+        </div>
         <button class="mgmtbtn">
             Admin Panel
         </button>
@@ -31,6 +36,7 @@
         </button>
         <button class="expbtn" onclick="window.open('https://cookies-game.github.io/Det./')">▶ 初回プレイの方は必ずここをタップ！！ ◀</button>
     </div>
+    <div class="mgmt-back-screen"></div>
     <div class="mgmt-screen">
         <h3 class="mgmt">
             🔧管理パネル🔧
@@ -42,8 +48,24 @@
     <div class="typing-screen">
         <h1 class="type-word"></h1>
         <h2 class="type-roma"></h2>
-        <h2 class="score">スコア： 0</h2>
-        <h2 class="timer">残り時間： 30秒</h2>
+        <div class="score-combo">
+            <h2 class="score">スコア： 0</h2>
+            <h2 class="combo">コンボ： 0</h2>
+        </div>
+        <h2 class="timer">残り時間： 40秒</h2>
+    </div>
+    <div class="result-screen">
+        <div class="result-box">
+            <h2 class="end-display">
+                ゲーム終了！！
+            </h2>
+            <h2 class="result-score">
+                最終スコア： <span class="finalscore">0</span>点
+            </h2>
+            <button class="home-btn">
+                ホームに戻る
+            </button>
+        </div>
     </div>
     <link rel="stylesheet" href="./style.css">
     <script src="./game.js"></script>

@@ -1,22 +1,33 @@
 const startbtn = document.querySelector(".startbtn");
 startbtn.onclick = function() {
     startbtn.style.display = "none";
+    startbtn2.style.display = "none";
     const typingscreen = document.querySelector(".typing-screen");
     typingscreen.style.display = "flex";
     const typeword = document.querySelector(".type-word");
     const typeroma = document.querySelector(".type-roma");
     const displayscore = document.querySelector(".score");
     const displaytimer = document.querySelector(".timer");
-    let timer = 30;
+    const resultscreen = document.querySelector(".result-screen");
+    const finalscore = document.querySelector(".finalscore");
+    const homebtn = document.querySelector(".home-btn");
+    let timer = 40;
     const countdown = setInterval(() => {
         timer--;
         displaytimer.textContent = "残り時間： " + timer + "秒";
         if (timer <= 0) {
             clearInterval(countdown);
-            alert("スコア" + score + "!!");
-            location.reload();
+            showResult(score);
         }
     }, 1000);
+    function showResult(score) {
+        typingscreen.style.display = "none";
+        finalscore.textContent = score;
+        resultscreen.style.display = "flex";
+    }
+    homebtn.onclick = function() {
+        location.reload();
+    }
     const wordlist = [
         { kana: "こんにちは", roma: "konnnitiha" },
         { kana: "グレープフルーツ", roma: "gure-puhuru-tu" },
@@ -36,6 +47,7 @@ startbtn.onclick = function() {
     ];
     let currentword = {};
     let score = 0;
+    let combo = 0;
     let currentindex = 0;
     function setNewWord() {
         currentword = wordlist[Math.floor(Math.random() * wordlist.length)];
@@ -46,6 +58,7 @@ startbtn.onclick = function() {
             .join("");
         currentindex = 0;
     }
+    const displaycombo = document.querySelector(".combo");
     setNewWord();
     document.addEventListener("keydown", (e) => {
         const key = e.key.toLowerCase();
@@ -56,12 +69,113 @@ startbtn.onclick = function() {
                 spans[currentindex].classList.add("typed");
             }
             currentindex++;
-            score += 150;
-            displayscore.textContent = "スコア： " + score;
+            combo++;
+            const basescore = 100;
+            const multiplier = 1 + (combo * 0.15);
+            const thisscore = Math.floor(basescore * multiplier);
+            score += thisscore;
+            displayscore.textContent = `スコア： ${score}`;
+            displaycombo.textContent = `コンボ： ${combo}`;
             if (currentindex === currentword.roma.length) {
                 currentindex = 0;
                 setNewWord();
             }
+        } else {
+            combo = 0;
+            displaycombo.textContent = `コンボ： ${combo}`;
+            displayscore.textContent = `スコア： ${score}`;
+        }
+    })
+};
+const startbtn2 = document.querySelector(".startbtn2");
+startbtn2.onclick = function() {
+    startbtn.style.display = "none";
+    startbtn2.style.display = "none";
+    const typingscreen = document.querySelector(".typing-screen");
+    typingscreen.style.display = "flex";
+    const typeword = document.querySelector(".type-word");
+    const typeroma = document.querySelector(".type-roma");
+    const displayscore = document.querySelector(".score");
+    const displaytimer = document.querySelector(".timer");
+    const resultscreen = document.querySelector(".result-screen");
+    const finalscore = document.querySelector(".finalscore");
+    const homebtn = document.querySelector(".home-btn");
+    let timer = 40;
+    const countdown = setInterval(() => {
+        timer--;
+        displaytimer.textContent = "残り時間： " + timer + "秒";
+        if (timer <= 0) {
+            clearInterval(countdown);
+            showResult(score);
+        }
+    }, 1000);
+    function showResult(score) {
+        typingscreen.style.display = "none";
+        finalscore.textContent = score;
+        resultscreen.style.display = "flex";
+    }
+    homebtn.onclick = function() {
+        location.reload();
+    }
+    const wordlist = [
+        // ↓これをクイズにする
+        { kana: "太陽の表面温度は？", roma: "rokusenndo"},
+        { kana: "地球の公転周期は？", roma: "itinenn"},
+        { kana: "太陽に一番近い惑星は？", roma: "suisei"},
+        { kana: "日本の首都は？", roma: "toukyou"},
+        { kana: "日本で２番目に面積が大きい都道府県は？", roma: "iwatekenn"},
+        { kana: "世界一面積がでかい国は？", roma: "rosia"},
+        { kana: "コンビニの正式名称は？", roma: "konnbiniennsusutoa"},
+        { kana: "織田信長がホトトギスに言った言葉は？", roma: "nakanunarakorositesimaehototogisu"},
+        { kana: "豊臣秀吉がホトトギスに言った言葉は？", roma: "nakanunaranakasetemiseyouhototogisu"},
+        { kana: "徳川家康がホトトギスに言った言葉は？", roma: "nakanunaranakumadematouhototogisu"},
+        { kana: "今の総理大臣は？", roma: "takaitisanae"},
+        { kana: "「奇想天外」この読み方は？", roma: "kisoutenngai"},
+        { kana: "氷点下５℃は何℃？", roma: "mainasugodo"},
+        { kana: "朝起きられないのは何のせい？", roma: "youkainosei"},
+        { kana: "キリンの鳴き声は？", roma: "mo-"},
+        { kana: "初代ポケモンの舞台は？", roma: "kannto-tihou"},
+        { kana: "「魑魅魍魎」この読み方は？", roma: "timimouryou"}
+    ];
+    let currentword = {};
+    let score = 0;
+    let combo = 0;
+    let currentindex = 0;
+    function setNewWord() {
+        currentword = wordlist[Math.floor(Math.random() * wordlist.length)];
+        typeword.textContent = currentword.kana;
+        typeroma.innerHTML = currentword.roma
+            .split("")
+            .map(char => `<span>${char}</span>`)
+            .join("");
+        currentindex = 0;
+    }
+    const displaycombo = document.querySelector(".combo");
+    setNewWord();
+    document.addEventListener("keydown", (e) => {
+        const key = e.key.toLowerCase();
+        if (key.length !== 1) return;
+        if (key === currentword.roma[currentindex]) {
+            const spans = typeroma.querySelectorAll("span");
+            if (spans[currentindex]) {
+                spans[currentindex].classList.add("typed");
+            }
+            currentindex++;
+            combo++;
+            const basescore = 100;
+            const multiplier = 1 + (combo * 0.35);
+            const thisscore = Math.floor(basescore * multiplier);
+            score += thisscore;
+            displayscore.textContent = `スコア： ${score}`;
+            displaycombo.textContent = `コンボ： ${combo}`;
+            if (currentindex === currentword.roma.length) {
+                currentindex = 0;
+                setNewWord();
+            }
+        } else {
+            combo = 0;
+            displayscore.textContent = `スコア： ${score}`;
+            displaycombo.textContent = `コンボ： ${combo}`;
         }
     })
 };
@@ -83,6 +197,7 @@ if (username !== "Admin") {
         expbtn.style.right = "300px";
     }
 };
+const closebtn = document.querySelector(".close-btn");
 mgmtbtn.onclick = function() {
     const adminbtn = prompt("Please enter the Admin code：");
     if (adminbtn === null) return
@@ -90,17 +205,24 @@ mgmtbtn.onclick = function() {
     if (adminbtn === "undefined") {
         alert("Access Granted");
         const mgmtscreen = document.querySelector(".mgmt-screen");
+        const mgmtbackscreen = document.querySelector(".mgmt-back-screen");
         if (mgmtscreen) {
-            mgmtscreen.style.setProperty("display", "flex", "important");
+            mgmtscreen.style.display = "flex";
+        }
+        if (mgmtbackscreen) {
+            mgmtbackscreen.style.display = "block";
         }
     } else {
         alert("Access Denied");
     }
 };
-const closebtn = document.querySelector(".close-btn");
+const mgmtbackscreen = document.querySelector(".mgmt-back-screen");
 closebtn.onclick = function() {
     const mgmtscreen = document.querySelector(".mgmt-screen");
     if (mgmtscreen) {
-        mgmtscreen.style.setProperty("display", "none", "important");
+        mgmtscreen.style.display = "none";
+    }
+    if (mgmtbackscreen) {
+        mgmtbackscreen.style.display = "none";
     }
 };
