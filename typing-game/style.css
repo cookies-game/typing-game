@@ -18,17 +18,18 @@ body{
     margin-left: 4px;
     font-size: 300%;
 }
-    
-button.startbtn {
-    position: absolute;
-    background-color: white;
-    /* ボタンの大きさ調整 */
-    padding: 30px 50px;
-    /* 丸み */
-    border-radius: 60px;
+.startbtnlist {
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform:translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 50px;
+}
+.startbtn {
+    background-color: white;
+    padding: 30px 50px;
+    border-radius: 60px;
     font-size: 30px;
     cursor: pointer;
     box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
@@ -36,10 +37,26 @@ button.startbtn {
     box-sizing: border-box;
     transition: 0.3s;
 }
-button.startbtn:hover {
+.startbtn:hover {
     filter: brightness(0.8);
     box-shadow: none;
-    transform: translate(-50%, -50%) translateY(2px);
+    transform: translateY(2px);
+}
+.startbtn2 {
+    background-color: white;
+    padding: 30px 50px;
+    border-radius: 60px;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+.startbtn2:hover {
+    filter: brightness(0.8);
+    box-shadow: none;
+    transform: translateY(2px);
 }
 button.FBbtn {
     position: absolute;
@@ -92,7 +109,7 @@ button.mgmtbtn:hover {
 }
 .mgmt-screen {
     /* 機能を追加するときにオフにする */
-    display: none !important;
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -104,18 +121,26 @@ button.mgmtbtn:hover {
     background-color: rgb(200, 15, 197);
     padding: 20px;
     border-radius: 15px;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-bottom: 600px;
     box-sizing: border-box;
     box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+}
+.mgmt-back-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
 }
 .mgmt {
     font-size: 35px;
     margin: 0;
     white-space: nowrap;
+    z-index: 9997;
 }
 button.close-btn {
     position: absolute;
@@ -126,6 +151,7 @@ button.close-btn {
     color: white;
     background-color: rgba(255, 255, 255, 0);
     border: 0px;
+    z-index: 9997;
 }
 .typing-screen {
     position: absolute;
@@ -141,20 +167,29 @@ button.close-btn {
     transform: translateX(-50%);
     color: white;
 }
-.score {
+.score-combo {
     position: absolute;
-    top: 35%;
+    top: 36%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 40px;
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+.score {
+    font-size: 35px;
+    color: white;
+}
+.combo {
+    font-size: 35px;
     color: white;
 }
 .timer {
     position: absolute;
-    top: 26%;
+    top: 27%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 40px;
+    font-size: 35px;
     color: white;
 }
 .type-roma {
@@ -172,4 +207,40 @@ button.close-btn {
 }
 .type-roma span.typed {
     color: orange !important;
+}
+.result-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.result-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 300px;
+}
+.end-display {
+    margin-bottom: 20px;
+}
+.result-score {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 30px;
+}
+.home-btn {
+    background-color: rgb(0, 89, 255);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.home-btn:hover {
+    filter: brightness(1.3);
 }
