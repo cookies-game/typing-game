@@ -119,23 +119,30 @@ startbtn2.onclick = function() {
     }
     const wordlist = [
         // ↓これをクイズにする
-        { kana: "太陽の表面温度は？", roma: "rokusenndo"},
-        { kana: "地球の公転周期は？", roma: "itinenn"},
-        { kana: "太陽に一番近い惑星は？", roma: "suisei"},
-        { kana: "日本の首都は？", roma: "toukyou"},
-        { kana: "日本で２番目に面積が大きい都道府県は？", roma: "iwatekenn"},
-        { kana: "世界一面積がでかい国は？", roma: "rosia"},
-        { kana: "コンビニの正式名称は？", roma: "konnbiniennsusutoa"},
-        { kana: "織田信長がホトトギスに言った言葉は？", roma: "nakanunarakorositesimaehototogisu"},
-        { kana: "豊臣秀吉がホトトギスに言った言葉は？", roma: "nakanunaranakasetemiseyouhototogisu"},
-        { kana: "徳川家康がホトトギスに言った言葉は？", roma: "nakanunaranakumadematouhototogisu"},
-        { kana: "今の総理大臣は？", roma: "takaitisanae"},
-        { kana: "「奇想天外」この読み方は？", roma: "kisoutenngai"},
-        { kana: "氷点下５℃は何℃？", roma: "mainasugodo"},
-        { kana: "朝起きられないのは何のせい？", roma: "youkainosei"},
-        { kana: "キリンの鳴き声は？", roma: "mo-"},
-        { kana: "初代ポケモンの舞台は？", roma: "kannto-tihou"},
-        { kana: "「魑魅魍魎」この読み方は？", roma: "timimouryou"}
+        { kana: "太陽の表面温度は？", roma: "rokusenndo" },
+        { kana: "地球の公転周期は？", roma: "itinenn" },
+        { kana: "太陽に一番近い惑星は？", roma: "suisei" },
+        { kana: "日本の首都は？", roma: "toukyou" },
+        { kana: "日本で２番目に面積が大きい都道府県は？", roma: "iwatekenn" },
+        { kana: "世界一面積がでかい国は？", roma: "rosia" },
+        { kana: "コンビニの正式名称は？", roma: "konnbiniennsusutoa" },
+        { kana: "織田信長がホトトギスに言った言葉は？", roma: "nakanunarakorositesimaehototogisu" },
+        { kana: "豊臣秀吉がホトトギスに言った言葉は？", roma: "nakanunaranakasetemiseyouhototogisu" },
+        { kana: "徳川家康がホトトギスに言った言葉は？", roma: "nakanunaranakumadematouhototogisu" },
+        { kana: "今の総理大臣は？", roma: "takaitisanae" },
+        { kana: "「奇想天外」この読み方は？", roma: "kisoutenngai" },
+        { kana: "氷点下５℃は何℃？", roma: "mainasugodo" },
+        { kana: "朝起きられないのは何のせい？", roma: "youkainosei" },
+        { kana: "キリンの鳴き声は？", roma: "mo-" },
+        { kana: "初代ポケモンの舞台は？", roma: "kannto-tihou" },
+        { kana: "「魑魅魍魎」この読み方は？", roma: "timimouryou" },
+        { kana: "大好きだった犬がもう居ぬ", roma: "daisukidattainugamouinu" },
+        { kana: "鹿を叱る", roma: "sikawosikaru" },
+        { kana: "猫が寝込む", roma: "nekoganekomu" },
+        { kana: "サイの最期", roma: "sainosaigo" },
+        { kana: "ダジャレかよ！！", roma: "dajarekayo" },
+        { kana: "目の下にクマがある熊", roma: "menositanikumagaarukuma"},
+        { kana: "オヤジギャグかよ！！！", roma: "oyazigyagukayo"}
     ];
     let currentword = {};
     let score = 0;
