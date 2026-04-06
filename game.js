@@ -226,7 +226,7 @@ mgmtbtn.onclick = function() {
             mgmtscreen.style.display = "flex";
         }
         if (mgmtbackscreen) {
-            mgmtbackscreen.style.display = "block";
+            mgmtbackscreen.style.display = "flex";
         }
     } else {
         alert("Access Denied");
